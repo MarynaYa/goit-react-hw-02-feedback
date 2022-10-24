@@ -1,0 +1,14 @@
+.buttonList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   list-style: none;
+   gap: 8px;
+}
+.button {
+    background-color: blue;
+    color: #fff;
+    width: 80px;
+    height: 60px;
+}
