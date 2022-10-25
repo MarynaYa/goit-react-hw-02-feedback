@@ -16,9 +16,9 @@ const FeedbackOptions = ({ onLeaveFeedback }) => (
     </>
 
 );
-export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {   
     onLeaveFeedback: propTypes.func,
   };
 
+  export default FeedbackOptions;

@@ -17,9 +17,59 @@ class App extends Component {
     bad: 0,
   };
 
+//options = Object.keys(this.state);
 
+//handleClick = evt => {
+//  this.setState(state => {
+//return { button: prevState.button + 1}
+//  });  
+//};
+
+//handleClick = button => {
+//  this.setState({ [button]: this.state[button] + 1 });
+//};
+
+handleClick = button => {
+  let key = button.target.textContent.toLowerCase();
+  this.setState( state=>({ [key]: state[key] + 1 }));
+};
+
+countTotalFeedback = () => {
+  const { good, bad, neutral } = this.state;
+  return good + neutral + bad;
+};
+
+countPositiveFeedbackPercentage = () => {
+  return Math.round((this.state.good * 100) / this.countTotalFeedback());
+}
+  
   render() {
-    
+    const { good, neutral, bad } = this.state;
+    const total = this.countTotalFeedback(this.state);
+
+    return (
+      <>
+      <Section title="Please leave feedback">
+      <FeedbackOptions 
+      onLeaveFeedback={this.handleClick}
+      />
+      </Section>    
+
+    {!total ? (
+ <Notification message="There is no feedback" />
+    ) : (
+    <Section title="Statistics">
+    <Statistics 
+    good={good}
+    neutral={neutral}
+    bad={bad}
+    total={total}
+    positivePercentage={this.countPositiveFeedbackPercentage()}
+    />
+    </Section>)
+  }
+      </>
+    );
   }
 } 
 
