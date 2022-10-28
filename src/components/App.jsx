@@ -4,7 +4,7 @@ import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
 
-import s from './App.module.css';
+//import s from './App.module.css';
 
 class App extends Component {
   static defaultProps = {};
