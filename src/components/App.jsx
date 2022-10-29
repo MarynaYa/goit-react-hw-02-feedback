@@ -17,7 +17,7 @@ class App extends Component {
     bad: 0,
   };
 
-//options = Object.keys(this.state);
+options = Object.keys(this.state);
 
 //handleClick = evt => {
 //  this.setState(state => {
@@ -29,9 +29,9 @@ class App extends Component {
 //  this.setState({ [button]: this.state[button] + 1 });
 //};
 
-handleClick = button => {
-  let key = button.target.textContent.toLowerCase();
-  this.setState( state=>({ [key]: state[key] + 1 }));
+handleClick = option => {
+  //let key = button.target.textContent.toLowerCase();
+  this.setState( prevState => ({ [option]: prevState[option] + 1 }));
 };
 
 countTotalFeedback = () => {
@@ -51,6 +51,7 @@ countPositiveFeedbackPercentage = () => {
       <>
       <Section title="Please leave feedback">
       <FeedbackOptions 
+      options={this.options}
       onLeaveFeedback={this.handleClick}
       />
       </Section>    
